@@ -122,8 +122,16 @@ class SunoApi {
 
   public async init(): Promise<SunoApi> {
     //await this.getClerkLatestVersion();
-    await this.getAuthToken();
-    await this.keepAlive();
+
+    // 如果 cookie 里已经有 __session（JWT token），直接使用
+    if (this.cookies.__session && this.cookies.__session.length > 100) {
+      logger.info('Using existing __session token from cookies');
+      this.currentToken = this.cookies.__session;
+      this.sid = 'dummy_session_id'; // 设置一个假的 sid 以绕过检查
+    } else {
+      await this.getAuthToken();
+      await this.keepAlive();
+    }
     return this;
   }
 
@@ -174,6 +182,13 @@ class SunoApi {
     if (!this.sid) {
       throw new Error('Session ID is not set. Cannot renew token.');
     }
+
+    // 如果使用的是直接提供的 __session token，跳过 renew
+    if (this.sid === 'dummy_session_id') {
+      logger.info('Using direct JWT token, skipping keepAlive');
+      return;
+    }
+
     // URL to renew session token
     const renewUrl = `${SunoApi.CLERK_BASE_URL}/v1/client/sessions/${this.sid}/tokens?_is_native=true&_clerk_js_version=${SunoApi.CLERK_VERSION}`;
     // Renew session token

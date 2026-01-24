@@ -27,6 +27,7 @@
     "js-cookie": "^3.0.5",
     "next": "14.1.4",
     "next-swagger-doc": "^0.4.0",
+    "patchright": "^1.57.0",
     "pino": "^8.19.0",
     "pino-pretty": "^11.0.0",
     "react": "^18",

@@ -29,6 +29,24 @@ yarn-error.log*
 .env*.local
 .env
 
+# Browser data (contains login sessions)
+.browser-data/
+.browser-real/
+
+# Cookie extraction scripts output
+/tmp/
+
+# Test and setup scripts (may contain sensitive data)
+test-clerk-api.js
+test-cookie.js
+get-cookie*.js
+extract-token*.js
+setup-cookie.js
+manual-extract.sh
+MANUAL_COOKIE_GUIDE.md
+/tmp/*.log
+*.log
+
 # vercel
 .vercel
 
