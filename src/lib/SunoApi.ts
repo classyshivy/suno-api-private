@@ -18,7 +18,18 @@ const cache = globalForSunoApi.sunoApiCache || new Map<string, SunoApi>();
 globalForSunoApi.sunoApiCache = cache;
 
 const logger = pino();
-export const DEFAULT_MODEL = 'chirp-v3-5';
+
+// Suno model versions
+export const SUNO_MODELS = {
+  V3_5: 'chirp-v3-5',
+  V4: 'chirp-v4',
+  V4_5_PLUS: 'chirp-bluejay',  // V4.5+ (蓝松鸦)
+  V4_5_PRO: 'chirp-auk',        // V4.5 Pro (海雀)
+  V5: 'chirp-crow',             // V5 (乌鸦)
+} as const;
+
+// Default to latest version (V5)
+export const DEFAULT_MODEL = SUNO_MODELS.V5;
 
 export interface AudioInfo {
   id: string; // Unique identifier for the audio

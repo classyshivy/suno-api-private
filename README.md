@@ -91,7 +91,40 @@ curl -X POST http://localhost:3001/api/custom_generate \
 
 启动服务后访问：http://localhost:3001/docs
 
-主要端点：
+### 支持的模型
+
+| 版本 | 模型名称 | 常量名 | 说明 |
+|------|----------|--------|------|
+| V3.5 | `chirp-v3-5` | `SUNO_MODELS.V3_5` | 旧版本 |
+| V4 | `chirp-v4` | `SUNO_MODELS.V4` | - |
+| V4.5+ | `chirp-bluejay` | `SUNO_MODELS.V4_5_PLUS` | 蓝松鸦 🐦 |
+| V4.5 Pro | `chirp-auk` | `SUNO_MODELS.V4_5_PRO` | 海雀 🐧 |
+| **V5** | `chirp-crow` | `SUNO_MODELS.V5` | 乌鸦 🦅 **（默认）** |
+
+使用示例：
+
+```bash
+# 使用默认模型 (V5)
+curl -X POST http://localhost:3001/api/custom_generate \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": "sunshine and rainbows",
+    "tags": "pop, upbeat",
+    "title": "Happy Day"
+  }'
+
+# 指定模型版本
+curl -X POST http://localhost:3001/api/custom_generate \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": "sunshine and rainbows",
+    "tags": "pop, upbeat",
+    "title": "Happy Day",
+    "model": "chirp-bluejay"
+  }'
+```
+
+### 主要端点
 
 - `GET /api/get_limit` - 获取账户剩余额度
 - `POST /api/generate` - 生成音乐（简单模式）
@@ -168,6 +201,12 @@ docker run -d -p 3001:3000 \
 ```
 
 ## 📝 变更日志
+
+### v1.2.0 (2026-01-25)
+- ✨ 新增：支持 Suno V4/V4.5+/V4.5 Pro/V5 全部模型
+- ✨ 新增：`SUNO_MODELS` 常量导出，方便类型安全使用
+- 🔄 变更：默认模型从 V3.5 升级到 V5 (`chirp-crow`)
+- 📝 改进：README 添加完整模型列表和使用示例
 
 ### v1.1.0 (2026-01-25)
 - ✨ 新增：支持直接使用 JWT Token 认证
